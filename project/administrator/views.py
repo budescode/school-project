@@ -21,7 +21,10 @@ from django.contrib.auth import authenticate, login, get_user_model, logout
 
 @login_required(login_url='/administrator/login/')
 def administrator(request):
-    return render(request, 'administrator/base.html', {})
+	if request.user.is_staff:
+		return render(request, 'administrator/base.html', {})
+	else:
+		return HttpResponse('you are not an admin')
 
 def add_student(request):
 	if request.method == 'POST':

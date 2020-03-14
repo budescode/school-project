@@ -24,7 +24,6 @@ def login_page(request):
 			username  = form.cleaned_data.get("username")
 			password  = form.cleaned_data.get("password")
 			user = authenticate(username=username, password=password)
-			print(username, password, user)
 			if user is not None:
 			 	if user.is_active:
 			 		login(request, user)
@@ -64,10 +63,10 @@ def logged_out(request):
 
 
 def add_student(request):
+	print('entered')
 	if request.method == 'POST':
 		form = StudentForm(request.POST or None, request.FILES or None)		
-		if form.is_valid():
-    		
+		if form.is_valid():    		
 			first_name = request.POST.get("first_name")
 			last_name = request.POST.get("last_name")
 			Matriculation_Number = form.cleaned_data.get("Matriculation_Number")
@@ -78,16 +77,8 @@ def add_student(request):
 			password = form.cleaned_data.get("password")
 			print(Level, password, Matriculation_Number, email)
 			form.save()
-			User.objects.create(username=Matriculation_Number, email=email, password=password)
-			# print(first_name, last_name, Matriculation_Number, department, Faculty, Level, email, Phone_Number)
-			# ok = form.save(commit = False)
-			# print(ok.surname)
-			# ok.save()
-			print("ok")
+			User.objects.create_user(username=Matriculation_Number, email=email, password=password)
 			messages.success(request, Matriculation_Number +  'is successfully Registered')
-
-			# add_subject(ok.pk, ok)
-
 			return redirect('index:login')
 	else:
 		form = StudentForm(request.POST or None) 
