@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+{% block text %}
+<div class="container">
+<div class="row">
+
+
+<div class="col-md-6">
+<h4>WELCOME TO UNIBEN E-SIWESS PORTAL </h4>	
+<img src="{% static 'img/uniben_logo.png' %}"> <br>
+</div>
+
+<div class="col-md-4 col-md-offset-2">
+	<div class="well">Contact Info
+
+		<hr>
+		Tel: +2349032841265<br>
+		Email: info@uniben.com
+	</div>
+
+
+
+	<div class="well">About Us
+
+		<hr>
+		
+		An E-SIWESS portal is an online portal that will be desiged to enable Student get first hand information about their industrial training program. It will enable student to register their IT (Industrial Training) Online and get Placement Letter Instantly. The system would help in the management of student Industrial Training records.
+	</div>
+
+
+</div>
+
+
+</div>
+</div>
+{% endblock %}

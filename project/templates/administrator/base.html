@@ -1,0 +1,88 @@
+{% extends 'administrator/base2.html' %}
+{% load staticfiles %}
+
+{% block body %}
+
+<div class="container-fluid">
+<div class="row">
+<div class="col-sm-12">
+
+
+
+
+
+<div class="well" style="background-color: grey; color: white">Phone: +2349032841265 <span class="pull-right">Email: info@uniben.edu</span></div>
+<div class="jumbotron" style="background-color: #F586F5">
+<center>
+    <img src="{% static 'img/uniben_logo.png' %}"> <br>
+    <span style="font-size: 20px">University Of Benin (E-SIWESS PORTAL)</span>
+
+</center>
+<nav class="navbar navbar-inverse" style="margin-bottom: -46px;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{%  url 'index:index' %}">Home</a>
+    </div>
+    <ul class="nav navbar-nav">
+
+      <li class="active"><a href="#">Admin</a></li>
+      <li class=""><a href="{% url 'administrator:register' %}">CREATE STUDENT PROFILE</a></li>
+      
+      <li><a href="{%  url 'administrator:eligible_students' %}">VIEW ELIGIBLE STUDENT</a></li>
+       <li><a href="{%  url 'administrator:login' %}">LOGIN</a></li>
+      {% if request.user.is_authenticated %}
+      <li><a href="{%  url 'administrator:logout' %}">LOGOUT</a></li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>
+
+</div> 
+<!--end of jumbotron-->
+
+<!--ADMIN: {{request.user.username}} <br>-->
+
+
+
+
+{% block text %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <span class="well">WELCOME TO E-SEWISS ADMIN PANEL</span>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+
+
+
+    <nav class="navbar navbar-inverse" style="margin-top: 156px;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <!--<a class="navbar-brand" href="#">Admin</a>-->
+    </div>
+    <ul class="nav navbar-nav">
+
+      <li class="active"><a href="{%  url 'index:login' %}">Login</a></li>
+      <li class=""><a href="{%  url 'index:register' %}">Sign Up</a></li>
+      
+      
+      <li><a href="#">Contact Us</a></li>
+      <li><a href="#">Terms And Conditions</a></li>
+
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#">(C) 2017 E-SIWESS</a></li>
+      <
+    </ul>
+  </div>
+</nav>
+
+</div>
+</div>
+</div>
+{% endblock %}
+
+
